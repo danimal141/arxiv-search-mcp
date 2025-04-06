@@ -6,6 +6,7 @@
     "npm:@types/dom-parser@*": "0.1.4",
     "npm:@types/node@*": "22.5.4",
     "npm:dom-parser@*": "1.1.5",
+    "npm:fast-xml-parser@4.3.4": "4.3.4",
     "npm:fastmcp@^1.21.0": "1.21.0_zod-to-json-schema@3.24.5__zod@3.24.2_zod@3.24.2",
     "npm:zod@^3.24.2": "3.24.2"
   },
@@ -271,6 +272,12 @@
         "statuses",
         "type-is",
         "vary"
+      ]
+    },
+    "fast-xml-parser@4.3.4": {
+      "integrity": "sha512-utnwm92SyozgA3hhH2I8qldf2lBqm6qHOICawRNRFu1qMe3+oqr+GcXjGqTmXTMGE5T4eC03kr/rlh5C1IRdZA==",
+      "dependencies": [
+        "strnum"
       ]
     },
     "fastmcp@1.21.0_zod-to-json-schema@3.24.5__zod@3.24.2_zod@3.24.2": {
@@ -649,6 +656,9 @@
     "strip-final-newline@4.0.0": {
       "integrity": "sha512-aulFJcD6YK8V1G7iRB5tigAP4TsHBZZrOV8pjV++zdUwmeV8uzbY7yn6h9MswN62adStNZFuCIx4haBnRuMDaw=="
     },
+    "strnum@1.1.2": {
+      "integrity": "sha512-vrN+B7DBIoTTZjnPNewwhx6cBA/H+IS7rfW68n7XxC1y7uoiGQBxaKzqucGUgavX15dJgiGztLJ8vxuEzwqBdA=="
+    },
     "strtok3@10.2.2": {
       "integrity": "sha512-Xt18+h4s7Z8xyZ0tmBoRmzxcop97R4BAh+dXouUDCYn+Em+1P3qpkUfI5ueWLT8ynC5hZ+q4iPEmGG1urvQGBg==",
       "dependencies": [
@@ -797,11 +807,17 @@
     "https://deno.land/x/deno_dom@v0.1.49/src/dom/string-cache.ts": "8e935804f7bac244cc70cec90a28c9f6d30fea14c61c2c4ea48fca274376d786",
     "https://deno.land/x/deno_dom@v0.1.49/src/dom/utils-types.ts": "96db30e3e4a75b194201bb9fa30988215da7f91b380fca6a5143e51ece2a8436",
     "https://deno.land/x/deno_dom@v0.1.49/src/dom/utils.ts": "bc429635e9204051ba1ecc1b212031b5ee7c6bcd95120c91bef696804aa67e74",
-    "https://deno.land/x/deno_dom@v0.1.49/src/parser.ts": "e06b2300d693e6ae7564e53dfa5c9a9e97fdb8c044c39c52c8b93b5d60860be3"
+    "https://deno.land/x/deno_dom@v0.1.49/src/parser.ts": "e06b2300d693e6ae7564e53dfa5c9a9e97fdb8c044c39c52c8b93b5d60860be3",
+    "https://deno.land/x/xml@6.0.4/_types.ts": "a7435282a7a775d80f8528aeec49996192c47fef8a8f616a1b216792424dc125",
+    "https://deno.land/x/xml@6.0.4/mod.ts": "b59e5c0dd9fe7ed597c21c39aacf089aa82fe5c5eaad3f411a43a9c104359f4e",
+    "https://deno.land/x/xml@6.0.4/parse.ts": "1302c75d8fd40df39310bb8ae6716302f0b77c61c607437dc023d3d792a0df54",
+    "https://deno.land/x/xml@6.0.4/stringify.ts": "0e2f79798d413c5386bf5de90bbe9901f99951ceae484050a8ef89e2b4da9dd0",
+    "https://deno.land/x/xml@6.0.4/wasm_xml_parser/wasm_xml_parser.js": "0804d738e6d94284b043546260b547bb4731fbfd3b3851139740e863dabf25bd"
   },
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@1",
+      "npm:fast-xml-parser@4.3.4",
       "npm:fastmcp@^1.21.0",
       "npm:zod@^3.24.2"
     ]

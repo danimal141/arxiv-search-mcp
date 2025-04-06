@@ -7,6 +7,6 @@
     "@std/assert": "jsr:@std/assert@1",
     "fastmcp": "npm:fastmcp@^1.21.0",
     "zod": "npm:zod@^3.24.2",
-    "deno_dom": "https://deno.land/x/deno_dom@v0.1.45/deno-dom-wasm.ts"
+    "fast-xml-parser": "npm:fast-xml-parser@4.3.4"
   }
 }

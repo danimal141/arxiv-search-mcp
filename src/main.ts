@@ -3,7 +3,21 @@
  */
 import { FastMCP } from "fastmcp";
 import { z } from "zod";
-import { DOMParser, Element } from "deno_dom";
+import { XMLParser } from "fast-xml-parser";
+
+// Type definitions for XML parsing
+interface XMLFeedEntry {
+  title: string;
+  author: { name: string }[];
+  summary: string;
+  id: string;
+}
+
+interface XMLResponse {
+  feed: {
+    entry: XMLFeedEntry[];
+  };
+}
 
 // Constants
 const ARXIV_API_BASE = "https://export.arxiv.org/api/query?";
@@ -25,23 +39,12 @@ interface ArxivEntry {
 }
 
 // Helper function for parsing XML entries
-function parseArxivEntry(entry: Element): ArxivEntry {
-  const getTextContent = (selector: string): string => {
-    const element = entry.querySelector(selector);
-    return element?.textContent?.trim() ?? "";
-  };
-
-  const authorElements = Array.from(entry.querySelectorAll("author name"));
-  const authors = authorElements
-    .map((element) => (element as Element).textContent?.trim() ?? "")
-    .filter((name) => name !== "")
-    .join(", ");
-
+function parseArxivEntry(entry: XMLFeedEntry): ArxivEntry {
   return {
-    title: getTextContent("title"),
-    authors,
-    summary: getTextContent("summary"),
-    link: getTextContent("id"),
+    title: entry.title,
+    authors: entry.author.map(a => a.name).join(", "),
+    summary: entry.summary,
+    link: entry.id,
   };
 }
 
@@ -76,23 +79,29 @@ server.addTool({
       }
 
       const xmlText = await response.text();
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+      const parser = new XMLParser({
+        ignoreAttributes: false,
+        attributeNamePrefix: "@_"
+      });
+      const xmlDoc = parser.parse(xmlText) as XMLResponse;
 
-      if (!xmlDoc) {
+      if (!xmlDoc || !xmlDoc.feed) {
         throw new Error("Failed to parse XML response");
       }
 
       // Parse entries
-      const entries = Array.from(xmlDoc.querySelectorAll("entry"))
-        .map((entry) => parseArxivEntry(entry as Element));
+      const entries = Array.isArray(xmlDoc.feed.entry)
+        ? xmlDoc.feed.entry.map(parseArxivEntry)
+        : xmlDoc.feed.entry
+        ? [parseArxivEntry(xmlDoc.feed.entry)]
+        : [];
 
       if (entries.length === 0) {
         return "No papers found for the specified category.";
       }
 
       // Format results
-      const formattedPapers = entries.map((paper) =>
+      const formattedPapers = entries.map((paper: ArxivEntry) =>
         `Title: ${paper.title}\nAuthors: ${paper.authors}\nSummary: ${paper.summary}\nLink: ${paper.link}`
       );
 
