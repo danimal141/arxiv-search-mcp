@@ -1,7 +1,7 @@
 /**
  * Unit tests for arXiv Search MCP Server
  */
-import { assertEquals, assertMatch } from "https://deno.land/std@0.208.0/testing/asserts.ts";
+import { assertEquals, assertMatch } from "@std/assert";
 
 import {
   parseArxivEntry,
