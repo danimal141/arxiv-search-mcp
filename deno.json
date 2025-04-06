@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "dev": "deno run --watch --allow-read --allow-env main.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "fastmcp": "npm:fastmcp@^1.21.0",
+    "zod": "npm:zod@^3.24.2"
+  }
+}
