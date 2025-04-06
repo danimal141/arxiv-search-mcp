@@ -8,7 +8,7 @@ import { XMLParser } from "fast-xml-parser";
 // Type definitions for XML parsing
 interface XMLFeedEntry {
   title: string;
-  author: { name: string }[];
+  author: { name: string }[] | { name: string };
   summary: string;
   id: string;
 }
@@ -40,9 +40,13 @@ interface ArxivEntry {
 
 // Helper function for parsing XML entries
 function parseArxivEntry(entry: XMLFeedEntry): ArxivEntry {
+  const authors = Array.isArray(entry.author)
+    ? entry.author.map((a) => a.name).join(", ")
+    : entry.author.name;
+
   return {
     title: entry.title,
-    authors: entry.author.map(a => a.name).join(", "),
+    authors,
     summary: entry.summary,
     link: entry.id,
   };
@@ -79,11 +83,17 @@ server.addTool({
       }
 
       const xmlText = await response.text();
+      // Debug output
+      console.error("Raw XML:", xmlText);
+
       const parser = new XMLParser({
         ignoreAttributes: false,
-        attributeNamePrefix: "@_"
+        attributeNamePrefix: "@_",
       });
       const xmlDoc = parser.parse(xmlText) as XMLResponse;
+
+      // Debug output
+      console.error("Parsed XML:", JSON.stringify(xmlDoc, null, 2));
 
       if (!xmlDoc || !xmlDoc.feed) {
         throw new Error("Failed to parse XML response");
