@@ -136,4 +136,4 @@ dist
 .pnp.*
 
 # build output
-arxiv-search-mcp
+bin/arxiv-search-mcp
