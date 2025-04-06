@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "dev": "deno run --watch --allow-read --allow-env main.ts"
+    "dev": "deno run --watch --allow-read --allow-env src/main.ts",
+    "compile": "deno compile --allow-read --allow-env --output=./bin/arxiv-search-mcp src/main.ts"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1",
