@@ -53,6 +53,9 @@ Replace `/path/to/dir` with the actual path to your compiled binary.
 
 ## Usage
 
+Example usage screenshot:
+![Sample usage with Claude](images/sample_use.png)
+
 The server provides a tool named `search_arxiv` that accepts the following parameters:
 
 ```typescript
