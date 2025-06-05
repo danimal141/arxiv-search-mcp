@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/danimal141-arxiv-search-mcp-badge.png)](https://mseep.ai/app/danimal141-arxiv-search-mcp)
+
 # arXiv Search MCP Server
 
 An MCP server that provides tools to search and fetch papers from arXiv.org.
