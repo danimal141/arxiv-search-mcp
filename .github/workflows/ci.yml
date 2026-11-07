@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Deno の依存は Dependabot alerts に載らないため、新しい advisory を週次の audit で拾う
+  schedule:
+    - cron: "0 0 * * 1"
 
 permissions:
   contents: read
@@ -19,3 +22,14 @@ jobs:
       - run: deno install --frozen
       - run: deno check src/
       - run: deno task test
+
+  # 新しい advisory で無関係な PR の自動マージが止まらないよう、必須チェックの test とは分ける
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - run: deno install --frozen
+      - run: deno audit --level high
