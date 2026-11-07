@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: deno
+    directory: /
+    schedule:
+      interval: weekly
+    # 自動マージするので、公開直後の版 (乗っ取りによる悪性リリース等) を数日見送る
+    cooldown:
+      default-days: 3
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 3
