@@ -8,7 +8,7 @@
     "npm:dom-parser@*": "1.1.5",
     "npm:fast-xml-parser@4.3.4": "4.3.4",
     "npm:fastmcp@^1.21.0": "1.21.0_zod-to-json-schema@3.24.5__zod@3.24.2_zod@3.24.2",
-    "npm:zod@^3.24.2": "3.24.2"
+    "npm:zod@^4.6.7": "4.6.7"
   },
   "jsr": {
     "@std/assert@1.0.19": {
@@ -33,7 +33,7 @@
         "express-rate-limit",
         "pkce-challenge",
         "raw-body",
-        "zod",
+        "zod@3.24.2",
         "zod-to-json-schema"
       ]
     },
@@ -295,7 +295,7 @@
         "uri-templates",
         "xsschema",
         "yargs",
-        "zod",
+        "zod@3.24.2",
         "zod-to-json-schema"
       ],
       "bin": true
@@ -759,11 +759,14 @@
     "zod-to-json-schema@3.24.5_zod@3.24.2": {
       "integrity": "sha512-/AuWwMP+YqiPbsJx5D6TfgRTc4kTLjsh5SOcd4bLsfUg2RcEXrFMJl1DGgdHy2aCfsIA/cr/1JM0xcB2GZji8g==",
       "dependencies": [
-        "zod"
+        "zod@3.24.2"
       ]
     },
     "zod@3.24.2": {
       "integrity": "sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ=="
+    },
+    "zod@4.6.7": {
+      "integrity": "sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg=="
     }
   },
   "redirects": {
@@ -863,7 +866,7 @@
       "jsr:@std/assert@1.0.19",
       "npm:fast-xml-parser@4.3.4",
       "npm:fastmcp@^1.21.0",
-      "npm:zod@^3.24.2"
+      "npm:zod@^4.6.7"
     ]
   }
 }

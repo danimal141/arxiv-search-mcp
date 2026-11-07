@@ -7,7 +7,7 @@
   "imports": {
     "@std/assert": "jsr:@std/assert@1.0.19",
     "fastmcp": "npm:fastmcp@^1.21.0",
-    "zod": "npm:zod@^3.24.2",
+    "zod": "npm:zod@^4.6.7",
     "fast-xml-parser": "npm:fast-xml-parser@4.3.4"
   }
 }
