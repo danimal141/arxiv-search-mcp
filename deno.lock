@@ -6,7 +6,7 @@
     "npm:@types/dom-parser@*": "0.1.4",
     "npm:@types/node@*": "22.5.4",
     "npm:dom-parser@*": "1.1.5",
-    "npm:fast-xml-parser@^5.12.0": "5.12.0",
+    "npm:fast-xml-parser@^5.12.1": "5.12.1",
     "npm:fastmcp@^4.25.0": "4.26.2_openapi-types@12.1.3",
     "npm:zod@^4.6.7": "4.6.7"
   },
@@ -379,15 +379,15 @@
     "fast-uri@3.1.9": {
       "integrity": "sha512-hS/0Wt3Ya043oKXs0sIxrMpKQITXhMLIrVAKKXi4gozGC9v7YRWVnXIZzjNPTO02M9BdxLCWqK1yRXgNziVyJQ=="
     },
-    "fast-xml-builder@1.3.1": {
-      "integrity": "sha512-pIM/1n3ntFXKYrUZwW7QCK0gAW7XY+wzj1YMIV3tLDvPj/V+zTGJK5e3/4WJfwj0qWw2ElNXiTixda/R+3YSug==",
+    "fast-xml-builder@1.3.2": {
+      "integrity": "sha512-OX91VSlShLPDgRZV7tk/YQ4l8tT75QziF5Ixg8g4PFbCVPjuTWwN+yQfAxLJ0dufJpprdOd6HlM74Jhd39TcBQ==",
       "dependencies": [
         "path-expression-matcher",
         "xml-naming"
       ]
     },
-    "fast-xml-parser@5.12.0": {
-      "integrity": "sha512-/pXxRBtwxY9w8z7YbgsvIPPcPvFDsTbIkWwTQJhzNJPokj+TbN6ftmcv4j/pEQDvOCNnKGDzuk5Bo2oogIOiFg==",
+    "fast-xml-parser@5.12.1": {
+      "integrity": "sha512-wR8dO/fx+z8C5exuem1e7BKOWvjsuzvjS/tvA/Xu3Z1zQqJGcXrPzXbcAiaMgp2KjreEROcTkmnnisrcmJ2hYQ==",
       "dependencies": [
         "@nodable/entities",
         "fast-xml-builder",
@@ -1015,7 +1015,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@1.0.19",
-      "npm:fast-xml-parser@^5.12.0",
+      "npm:fast-xml-parser@^5.12.1",
       "npm:fastmcp@^4.25.0",
       "npm:zod@^4.6.7"
     ]
